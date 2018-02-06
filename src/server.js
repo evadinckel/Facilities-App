@@ -4,8 +4,15 @@ const VoteCounter = require("../src/voteCounter.js")
 
 voteCounter = new VoteCounter(0)
 
-server.get('/vote_up', function (req, res, next) {
+server.get('/vote_hot', function (req, res, next) {
   voteCounter.voteHot()
+  next()
+}, function (req, res) {
+  res.send(`${voteCounter.votes}`)
+})
+
+server.get('/vote_cold', function (req, res, next) {
+  voteCounter.voteCold()
   next()
 }, function (req, res) {
   res.send(`${voteCounter.votes}`)
