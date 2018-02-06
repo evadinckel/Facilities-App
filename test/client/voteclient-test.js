@@ -1,7 +1,8 @@
-let server = require('../src/server.js');
-
 var assert = require('assert');
-const VoteClient = require("../src/voteclient.js")
+const VoteClient = require("../../src/voteclient.js")
+
+let server = require('../../src/server.js').server;
+let app = require('../../src/server.js').app;
 
 
 
@@ -9,12 +10,14 @@ describe('VoteClient', function(){
   this.timeout(10000);
   it('can vote hot on the server', function() {
     var voteclient = new VoteClient;
+    console.log("I am the voteclient:")
+    console.log(voteclient)
     return voteclient.apiCall('http://localhost:3000/vote_hot')
     .then(function(data) {
       assert.equal(data, 1);
     });
   });
-  
+
   it('can vote cold on the server', function() {
     var voteclient = new VoteClient;
     return voteclient.apiCall('http://localhost:3000/vote_cold')

@@ -1,5 +1,5 @@
 var assert = require('assert');
-const VoteCounter = require("../src/voteCounter.js")
+const VoteCounter = require("../../src/voteCounter.js")
 
 
 

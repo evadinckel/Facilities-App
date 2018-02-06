@@ -2,7 +2,6 @@ XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 class VoteClient{
   constructor(){
-
   }
 }
 

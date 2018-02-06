@@ -16,7 +16,8 @@
     "xmlhttprequest": "^1.8.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test-server": "mocha test/server-and-backend",
+    "test-client": "mocha test/client"
   },
   "repository": {
     "type": "git",
