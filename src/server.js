@@ -18,6 +18,13 @@ server.get('/vote_cold', function (req, res, next) {
   res.send(`${voteCounter.votes}`)
 })
 
+server.get('/vote_neutral', function (req, res, next) {
+  voteCounter.voteNeutral()
+  next()
+}, function (req, res) {
+  res.send(`${voteCounter.votes}`)
+})
+
 server.listen(3000, ()=> console.log('Example app listening on port 3000!'))
 
 

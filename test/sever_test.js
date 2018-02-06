@@ -10,7 +10,7 @@ describe('server access', () =>{
 
 
 
-  describe('GET /vote_hot route', ()=> {
+  it('GET /vote_hot route', ()=> {
     chai.request(server)
       .get('/vote_hot')
       .end((err,res)=> {
@@ -20,7 +20,7 @@ describe('server access', () =>{
       });
   });
 
-  describe('GET /vote_cold route', ()=> {
+  it('GET /vote_cold route', ()=> {
     chai.request(server)
       .get('/vote_cold')
       .end((err,res)=> {
@@ -29,5 +29,15 @@ describe('server access', () =>{
       // done();
       });
   });
+
+  it('GET /vote_neutral route', () => {
+    chai.request(server)
+    .get('/vote_neutral')
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.text.should.be.eql('0');
+    });
+  });
+
 
 });
