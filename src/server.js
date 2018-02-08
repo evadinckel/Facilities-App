@@ -25,7 +25,7 @@ app.get('/vote_neutral', function (req, res, next) {
   res.send(`${voteCounter.votes}`)
 })
 
-var server = app.listen(3000, ()=> console.log('Example app listening on port 3000!'))
+var server = app.listen(4000, ()=> console.log('Example app listening on port 4000!'))
 
 module.exports = {
   server: server,
