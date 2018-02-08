@@ -6,6 +6,7 @@ voteCounter = new VoteCounter(0)
 
 app.get('/vote_hot', function (req, res, next) {
   voteCounter.voteHot()
+  console.log('here')
   next()
 }, function (req, res) {
   res.send(`${voteCounter.votes}`)
