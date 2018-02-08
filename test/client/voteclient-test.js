@@ -12,7 +12,7 @@ describe('VoteClient', function(){
     var voteclient = new VoteClient;
     console.log("I am the voteclient:")
     console.log(voteclient)
-    return voteclient.apiCall('http://localhost:3000/vote_hot')
+    return voteclient.apiCall('http://localhost:4000/vote_hot')
     .then(function(data) {
       assert.equal(data, 1);
     });
@@ -20,7 +20,7 @@ describe('VoteClient', function(){
 
   it('can vote cold on the server', function() {
     var voteclient = new VoteClient;
-    return voteclient.apiCall('http://localhost:3000/vote_cold')
+    return voteclient.apiCall('http://localhost:4000/vote_cold')
     .then(function(data) {
       assert.equal(data, 0);
     });
@@ -28,7 +28,7 @@ describe('VoteClient', function(){
 
   it('can vote neutral on the server', function() {
     var voteclient = new VoteClient;
-    return voteclient.apiCall('http://localhost:3000/vote_neutral')
+    return voteclient.apiCall('http://localhost:4000/vote_neutral')
     .then(function(data) {
       assert.equal(data, 0);
     });

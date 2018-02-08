@@ -6,20 +6,11 @@ import Counter from './counterModel.js';
 class VotingButton extends React.Component {
   constructor(props) {
     super(props);
+    this.counter = new Counter()
     this.state = {
       currentVote: null
     };
-    // this.setState({ voteCount: this.counter.upVote  })
-
-    this.counter = new Counter()
-
   }
-
-//   this.setState((counter) => {
-//   return {counter: counter.upVote};
-// });
-
-
 
   render() {
     return ([
