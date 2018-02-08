@@ -15,12 +15,15 @@ class Counter {
   }
 
   apiCall(url){
+
     return new Promise(function(resolve, reject) {
 
       var httpRequest = new XMLHttpRequest();
+
       httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4) {
           if (httpRequest.status === 200) {
+            console.log('heeeey')
             resolve(httpRequest.responseText);
           } else {
             reject(Error(httpRequest.status))
@@ -33,4 +36,4 @@ class Counter {
   }
 }
 
-export default Counter;
+ module.exports = Counter;
