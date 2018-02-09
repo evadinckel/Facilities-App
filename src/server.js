@@ -9,10 +9,12 @@ const voteCounter = new Counter()
 // })
 
 app.get('/vote_hot', function (req, res, next) {
-  voteCounter.voteHot()
-  next()
-}, function (req, res) {
-  res.send(`${voteCounter.currentVote}`)
+//   voteCounter.voteHot()
+//   next()
+// }, function (req, res) {
+//   res.send(`${voteCounter.currentVote}`)
+console.log('vote_hot')
+ res.send({ express: 'Hello From vote_hot' });
 })
 
 // app.get('/vote_cold', function (req, res, next) {
@@ -34,5 +36,5 @@ var server = app.listen(4000, ()=> console.log('Example app listening on port 40
 module.exports = {
   server: server,
   app: app
-  
+
 }

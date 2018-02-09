@@ -11,9 +11,18 @@ class VotingButton extends React.Component {
     };
   }
 
-componentDidMount(){
-  this.upVote();
-}
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+  const response = await fetch('/vote_hot');
+  const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+  return body;
+};
 
 upVote(){
 
@@ -21,20 +30,26 @@ upVote(){
 
 
 
-
-
-
   render() {
-    return ([
-    <button onClick={() => this.counter.apiCall('http://localhost:4000/vote_hot').then((value) => {
-      this.setState({currentVote:value})
-    })
-  } id='hotButton' key='1'>Vote Hot!</button>
-
-    // console.log(this.state.counter)
-    // <p>{this.props.name}</p>
-  ])
-  }
+    return (
+  <div className="App">
+    <header className="App-header">
+      <h1 className="App-title">Welcome to React</h1>
+    </header>
+    <p className="App-intro">{this.state.response}</p>
+  </div>
+);
+}
 }
 //find root and replace
 export default VotingButton;
+
+// return ([
+// <button onClick={() => this.counter.apiCall('http://localhost:4000/vote_hot').then((value) => {
+//   this.setState({currentVote:value})
+// })
+// } id='hotButton' key='1'>Vote Hot!</button>
+//
+// // console.log(this.state.counter)
+// // <p>{this.props.name}</p>
+// ])
