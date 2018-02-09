@@ -13,14 +13,13 @@ class VotingButton extends React.Component {
 
   render() {
     return ([
-    <button onClick={() => this.setState( { currentVote: "" + this.counter.apiCall('http://localhost:4000/vote_hot') } )
-  } id='hotButton' key='1'>Vote Hot!</button>,
-  <button onClick={() => this.setState( { currentVote: this.counter.voteCold() } )
-} id='coldButton' key='2'>Vote Cold!</button>,
-    <p id='voteDisplay' key='3'>Hello Nero, the vote stands at {this.state.currentVote}</p>
+    <button onClick={() => this.counter.apiCall('http://localhost:4000/vote_hot').then((value) => {
+      this.setState({currentVote:value})
+    })
+  } id='hotButton' key='1'>Vote Hot!</button>
+
     // console.log(this.state.counter)
     // <p>{this.props.name}</p>
-
   ])
   }
 }

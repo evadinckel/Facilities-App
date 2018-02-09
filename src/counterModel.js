@@ -15,24 +15,27 @@ class Counter {
   }
 
   apiCall(url){
-
-    return new Promise(function(resolve, reject) {
-
-      var httpRequest = new XMLHttpRequest();
-
-      httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === 4) {
-          if (httpRequest.status === 200) {
-            console.log('heeeey')
-            resolve(httpRequest.responseText);
-          } else {
-            reject(Error(httpRequest.status))
-          }
-        }
-      };
-      httpRequest.open('GET', url);
-      httpRequest.send();
-    })
+    console.log('test')
+    return 4
+    // return new Promise(function(resolve, reject) {
+    //
+    //   var httpRequest = new XMLHttpRequest();
+    //
+    //   httpRequest.onreadystatechange = function () {
+    //     console.log(httpRequest.readyState)
+    //     if (httpRequest.readyState === 1) {
+    //       console.log(httpRequest.status)
+    //       if (httpRequest.status === 200) {
+    //         resolve(httpRequest.responseText);
+    //       } else {
+    //         console.log('error')
+    //         reject(Error(httpRequest.status))
+    //       }
+    //     }
+    //   };
+    //   httpRequest.open('GET', url);
+    //   httpRequest.send();
+  //   })
   }
 }
 
