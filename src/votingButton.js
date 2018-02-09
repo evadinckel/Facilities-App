@@ -11,6 +11,19 @@ class VotingButton extends React.Component {
     };
   }
 
+componentDidMount(){
+  this.upVote();
+}
+
+upVote(){
+
+}
+
+
+
+
+
+
   render() {
     return ([
     <button onClick={() => this.counter.apiCall('http://localhost:4000/vote_hot').then((value) => {

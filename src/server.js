@@ -1,8 +1,7 @@
-const express = require('express')
+import express from 'express';
+import Counter from "../src/counterModel.js";
 const app = express()
-const Counter = require("../src/counterModel.js")
-
-voteCounter = new Counter()
+const voteCounter = new Counter()
 
 // app.use(function (req, res, next) {
 //     // Website you wish to allow to connect
@@ -35,4 +34,5 @@ var server = app.listen(4000, ()=> console.log('Example app listening on port 40
 module.exports = {
   server: server,
   app: app
+  
 }
