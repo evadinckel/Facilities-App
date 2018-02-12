@@ -13,37 +13,24 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Inital test', () => {
   it('should render a Vote Hot prop', () => {
 
-    const wrapper = mount(
+  const wrapper = mount(
       <VotingButton />
     );
-
     expect(wrapper.find('[id="hotButton"]').text()).toEqual('Vote Hot!')
   });
 
 
   it('should click vote hot button and vote goes up', () => {
-    const wrapper = shallow(
+    const votingButton = shallow(
       <VotingButton />
     );
+    console.log(votingButton.toJSON())
+    votingButton.find('[id="hotButton"]').simulate('click')
+    // const votingButton.voteDisplay
 
-    wrapper.find('[id="hotButton"]').simulate('click')
-    const votingButton = ReactTestUtils.renderIntoDocument(
-      <VotingButton />
-    )
+    console.log(votingButton.currentVote)
 
-    expect(wrapper.find('[id="voteDisplay"]').text()).toEqual('Current votes for HOT: 1')
+    expect(votingButton.find('[id="voteDisplay"]').text()).toEqual('Current votes for HOT: 1')
 
   });
-
-  //
-  // it('should click vote cold button and vote goes down', () => {
-  //   const wrapper = mount(
-  //      <VotingButton />
-  //  );
-  //
-  //  wrapper.find('[id="coldButton"]').simulate('click')
-  //  expect(wrapper.find('[id="voteDisplay"]').text()).toEqual('Hello Nero, the vote stands at -1')
-  //  wrapper.find('[id="coldButton"]').simulate('click')
-  //  expect(wrapper.find('[id="voteDisplay"]').text()).toEqual('Hello Nero, the vote stands at -2')
-
 });
