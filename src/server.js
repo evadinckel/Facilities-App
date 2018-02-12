@@ -1,5 +1,5 @@
-import express from 'express';
-import Counter from "../src/counterModel.js";
+var express = require('express');
+var Counter =  require("../src/counterModel.js");
 const app = express()
 const counter = new Counter()
 

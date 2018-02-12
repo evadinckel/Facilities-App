@@ -16,40 +16,46 @@ describe('server access', () =>{
 
 
 
-  it('GET /vote_hot route', ()=> {
-    it('works', function(done){
+  it('GET /vote_hot route', (done)=> {
     chai.request(app)
       .get('/vote_hot')
       .end((err,res)=> {
         res.should.have.status(200);
-        res.text.should.be.eql('1');
+        res.text.should.be.equal('{"votes":1}');
         done();
       });
-    });
   });
 
-  it('GET /vote_cold route', ()=> {
-    it('works', function(done){
+  it('GET /vote_hot route AND store session cookie', (done)=> {
     chai.request(app)
-      .get('/vote_cold')
+      .get('/vote_hot')
       .end((err,res)=> {
-        res.should.have.status(200);
-        res.text.should.be.eql('0');
-      done();
+        chai.reqest(app)
+        .get('/check-cookies')
+        .end((err,res)=>{
+          console.log(res)
+        })
       });
-    });
   });
 
-  it('GET /vote_neutral route', ()=> {
-    it('works', function(done){
-    chai.request(app)
-      .get('/vote_neutral')
-      .end((err,res)=> {
-        res.should.have.status(200);
-        res.text.should.eql('0')
-      done();
-      });
-    });
-  });
+  // it('GET /vote_cold route', (done)=> {
+  //   chai.request(app)
+  //     .get('/vote_cold')
+  //     .end((err,res)=> {
+  //       res.should.have.status(200);
+  //       res.text.should.be.eql('0');
+  //     done();
+  //     });
+  // });
+  //
+  // it('GET /vote_neutral route', (done)=> {
+  //   chai.request(app)
+  //     .get('/vote_neutral')
+  //     .end((err,res)=> {
+  //       res.should.have.status(200);
+  //       res.text.should.eql('0')
+  //     done();
+  //   });
+  // });
 
 });
