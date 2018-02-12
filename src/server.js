@@ -1,7 +1,7 @@
 import express from 'express';
 import Counter from "../src/counterModel.js";
 const app = express()
-const voteCounter = new Counter()
+const counter = new Counter()
 
 // app.use(function (req, res, next) {
 //     // Website you wish to allow to connect
@@ -9,23 +9,23 @@ const voteCounter = new Counter()
 // })
 
 app.get('/vote_hot', function (req, res, next) {
-//   voteCounter.voteHot()
-//   next()
-// }, function (req, res) {
-//   res.send(`${voteCounter.currentVote}`)
-console.log('vote_hot')
+ counter.voteHot()
+ console.log(counter.currentVote)
+  next()
+}, function (req, res) {
+  // res.send(`${voteCounter.currentVote}`)
  res.send({ express: 'Hello From vote_hot' });
 })
 
 // app.get('/vote_cold', function (req, res, next) {
-//   voteCounter.voteCold()
+//  counter.voteCold()
 //   next()
 // }, function (req, res) {
 //   res.send(`${voteCounter.currentVote}`)
 // })
 
 // app.get('/vote_neutral', function (req, res, next) {
-//   voteCounter.voteNeutral()
+//   counter.voteNeutral()
 //   next()
 // }, function (req, res) {
 //   res.send(`${voteCounter.currentVote}`)

@@ -5,7 +5,7 @@ class Counter {
 
   voteHot() {
     this.currentVote ++;
-    console.log(this.currentVote);
+    // console.log(this.currentVote);
     return this.currentVote
   }
 
