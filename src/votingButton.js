@@ -13,7 +13,7 @@ class VotingButton extends React.Component {
 
   buttonClick() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => this.setState({ response: res.vote }))
       .catch(err => console.log(err));
   }
 
@@ -36,7 +36,8 @@ upVote(){
     <header className="App-header">
       <h1 className="App-title">Welcome to React</h1>
     </header>
-    <button onClick={() => this.buttonClick()}>Vote Hot!{this.state.response}</button>
+    <button onClick={() => this.buttonClick()}>Vote Hot!</button>
+    <p>{this.state.response}</p>
   </div>
 );
 }
