@@ -6,15 +6,29 @@ class Counter {
   }
 
   voteHot(cb) {
-    User.update({ name: 'Eva' }, { $inc: { votes: -1 } }).then(data => {
-      cb();
-    });
-    this.currentVote++;
+
+    var conditionForFailure = User.find({name:'Eva'}).then((data)=>{
+            data[0].votes
+          })
+
+    if(conditionForFailure < 1 ){
+         console.log("NOT ENOUGH VOTES!!!")
+         // User.find({name: 'Eva'}).then((data)=>{console.log(data)})
+      } else {
+        // User.find({name: 'Eva'}).then((data)=>{console.log(data)})
+        User.update({ name: 'Eva' }, { $inc: { votes: -1 } })
+          .then(data => {
+            cb();
+            this.currentVote++;
+          });
+      }
+
+
     //console.log(this.currentVote);
     // Do nothing if User has Zero Votes
     // Call database
     // Input Vote
-    return this.currentVote;
+    // return this.currentVote;
   }
 
   voteCold() {

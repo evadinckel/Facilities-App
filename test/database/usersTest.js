@@ -32,8 +32,8 @@ describe('Users', () => {
     eva.save().then(() => {
       counter.voteHot(() => {
         User.find({ name: 'Eva' }).then(data => {
+          // console.log(data[0])
           assert(data[0].votes === 0);
-
           done();
         });
       });
