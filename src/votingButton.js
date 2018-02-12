@@ -13,34 +13,29 @@ class VotingButton extends React.Component {
 
   buttonClick() {
     this.callApi()
-      .then(res => this.setState({ response: res.vote }))
-      .catch(err => console.log(err));
+    .then(res => this.setState({ response: res.vote }))
+    .catch(err => console.log(err));
   }
 
   callApi = async () => {
-  const response = await fetch('/vote_hot');
-  const body = await response.json();
-  if (response.status !== 200) throw Error(body.message);
-  return body;
-};
-
-upVote(){
-
-}
-
+    const response = await fetch('/vote_hot');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
 
 
   render() {
     return (
-  <div className="App">
-    <header className="App-header">
-      <h1 className="App-title">Welcome to React</h1>
-    </header>
-    <button onClick={() => this.buttonClick()}>Vote Hot!</button>
-    <p>{this.state.response}</p>
-  </div>
-);
-}
+      <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <button onClick={() => this.buttonClick() }>Vote Hot!</button>
+        <p>{this.state.response}</p>
+      </div>
+    );
+  }
 }
 //find root and replace
 export default VotingButton;
