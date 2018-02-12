@@ -15,25 +15,14 @@ class VotingButton extends React.Component {
   buttonClick() {
     axios.get('/vote_hot')
     .then((response) => {
-      console.log(response.data.votes);
+
+      this.setState({currentVote: response.data.votes});
+      console.log(response)
     })
     .catch((error) => {
       console.log(error)
     });
-
-
-    // this.callApi()
-    // .then(res => this.setState({ response: res.vote }))
-    // .catch(err => console.log(err));
   }
-
-  // callApi = async () => {
-  //   const response = await fetch('/vote_hot');
-  //   const body = await response.json();
-  //   if (response.status !== 200) throw Error(body.message);
-  //   return body;
-  // };
-
 
 
 
@@ -44,7 +33,7 @@ class VotingButton extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <button onClick={() => this.buttonClick() }>Vote Hot!</button>
-        <p>{this.state.response}</p>
+        <p>{this.state.currentVote}</p>
       </div>
     );
   }
