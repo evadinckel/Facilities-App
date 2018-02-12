@@ -1,25 +1,30 @@
+const User = require('../database/user');
+
 class Counter {
   constructor() {
     this.currentVote = 0;
   }
 
-  voteHot() {
-    this.currentVote ++;
-    console.log(this.currentVote);
+  voteHot(cb) {
+    User.update({ name: 'Eva' }, { $inc: { votes: -1 } }).then(data => {
+      cb();
+    });
+    this.currentVote++;
+    //console.log(this.currentVote);
     // Do nothing if User has Zero Votes
     // Call database
     // Input Vote
-    return this.currentVote
+    return this.currentVote;
   }
 
-  voteCold(){
-    this.currentVote --;
-    return this.currentVote
+  voteCold() {
+    this.currentVote--;
+    return this.currentVote;
   }
 
-  apiCall(url){
-    console.log('test')
-    return 4
+  apiCall(url) {
+    console.log('test');
+    return 4;
     // return new Promise(function(resolve, reject) {
     //
     //   var httpRequest = new XMLHttpRequest();
@@ -38,8 +43,8 @@ class Counter {
     //   };
     //   httpRequest.open('GET', url);
     //   httpRequest.send();
-  //   })
+    //   })
   }
 }
 
- module.exports = Counter;
+module.exports = Counter;

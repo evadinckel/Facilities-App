@@ -7,7 +7,7 @@ const UserSchema = new Schema({
   },
   votes: {
     type: Number,
-    default: 0
+    default: 1
   }
 });
 
