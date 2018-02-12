@@ -40,6 +40,14 @@ describe('Users', () => {
     });
   });
 
+  it('produces an error if the user attemps to vote more than once', done => {
+    var eva = new User({ name: 'Eva' });
+    var counter = new Counter();
+    eva.save().then(() => {
+      counter.voteHot(console.log());
+    });
+  });
+
   it('a user can cast votes again when 2 hours have passed', () => {});
 
   it('a user can cast votes again when 2 hours have passed but not more than 1 vote', () => {});
