@@ -1,6 +1,7 @@
 import React from 'react';
 // import './index.css';
 import Counter from './counterModel.js';
+import axios from "axios";
 
 class VotingButton extends React.Component {
   constructor(props) {
@@ -12,17 +13,28 @@ class VotingButton extends React.Component {
   }
 
   buttonClick() {
-    this.callApi()
-    .then(res => this.setState({ response: res.vote }))
-    .catch(err => console.log(err));
+    axios.get('/vote_hot')
+    .then((response) => {
+      console.log(response.data.votes);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+
+    // this.callApi()
+    // .then(res => this.setState({ response: res.vote }))
+    // .catch(err => console.log(err));
   }
 
-  callApi = async () => {
-    const response = await fetch('/vote_hot');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
-  };
+  // callApi = async () => {
+  //   const response = await fetch('/vote_hot');
+  //   const body = await response.json();
+  //   if (response.status !== 200) throw Error(body.message);
+  //   return body;
+  // };
+
+
 
 
   render() {

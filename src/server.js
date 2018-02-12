@@ -14,7 +14,7 @@ app.get('/vote_hot', function (req, res, next) {
   next()
 }, function (req, res) {
   // res.send(`${voteCounter.currentVote}`)
- res.send({ vote: counter.currentVote  });
+ res.send({ votes: counter.currentVote });
 })
 
 // app.get('/vote_cold', function (req, res, next) {
