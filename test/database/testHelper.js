@@ -9,3 +9,11 @@ before(done => {
     done();
   });
 });
+
+beforeEach((done) => {
+  const { users,comments,blogposts } = mongoose.connection.collections;
+
+  users.drop(() => {
+    done();
+  });
+});

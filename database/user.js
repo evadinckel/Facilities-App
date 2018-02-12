@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
     type: String
+  },
+  votes: {
+    type: Number,
+    default: 1
   }
 });
 
