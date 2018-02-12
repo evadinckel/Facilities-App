@@ -35,6 +35,7 @@
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
     "xmlhttprequest": "^1.8.0"
+    "nodemon": "^1.14.12"
   },
   "scripts": {
     "test-server": "mocha test/server-and-backend",
@@ -44,6 +45,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "test-database": "mocha test/database"
+    "dev": "nodemon src/server.js"
+
   },
   "jest": {
     "verbose": true,
@@ -55,8 +58,7 @@
     ],
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
-    },
-    "dev": "nodemon src/server.js"
+    }
   },
   "repository": {
     "type": "git",
