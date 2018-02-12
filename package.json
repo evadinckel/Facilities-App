@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "main": "index.js",
+  "proxy": "http://localhost:4000/",
   "directories": {
     "test": "test"
   },
@@ -44,9 +45,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "dev": " nodemon src/server.js --exec babel-node",
     "test-database": "mocha test/database"
-    "dev": "nodemon src/server.js"
-
   },
   "jest": {
     "verbose": true,
