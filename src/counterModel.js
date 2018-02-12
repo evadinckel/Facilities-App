@@ -6,6 +6,9 @@ class Counter {
   voteHot() {
     this.currentVote ++;
     console.log(this.currentVote);
+    // Do nothing if User has Zero Votes
+    // Call database
+    // Input Vote
     return this.currentVote
   }
 
