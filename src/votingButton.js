@@ -6,7 +6,7 @@ import axios from "axios";
 class VotingButton extends React.Component {
   constructor(props) {
     super(props);
-    this.counter = new Counter()
+    var counter = new Counter()
     this.state = {
       currentVote: null
     };
