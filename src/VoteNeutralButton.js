@@ -24,7 +24,7 @@ class VoteNeutralButton extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="NeutralClass">
         <header className="App-header" />
         <button id="neutralButton" onClick={() => this.buttonClick()}>
           Vote Neutral!

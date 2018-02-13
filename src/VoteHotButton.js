@@ -24,7 +24,7 @@ class VoteHotButton extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="HotClass">
         <header className="App-header" />
         <button id="hotButton" onClick={() => this.buttonClick()}>
           Vote Hot!

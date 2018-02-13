@@ -24,7 +24,7 @@ class VoteColdButton extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="ColdClass">
         <header className="App-header" />
         <button id="coldButton" onClick={() => this.buttonClick()}>
           Vote Cold!
