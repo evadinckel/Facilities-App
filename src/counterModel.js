@@ -5,6 +5,7 @@ class Counter {
     this.hotCounter = 0;
     this.coldCounter = 0;
     this.neutralCounter = 0;
+    console.log(this.hotCounter)
   }
 
   voteHot() {
