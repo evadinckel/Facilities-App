@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VotingButton from './votingButton.js';
+import App from './App.js'
 
-ReactDOM.render(<VotingButton />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))

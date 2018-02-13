@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import VotingButton from './src/votingButton'
+import VotingButton from './votingButton.js';
 
 class App extends Component {
 
-}
+
 
 
 
 
   render() {
-    return {}
+    return (
+      <div>
+        <VotingButton />
+        Hello!</div>
+
+  )
+}
+
+}
 
 export default App;
