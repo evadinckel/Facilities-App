@@ -2,7 +2,7 @@ import React from 'react';
 // import './index.css';
 import axios from 'axios';
 
-class VoteHotButton extends React.Component {
+class VoteNeutralButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class VoteHotButton extends React.Component {
 
   buttonClick() {
     axios
-      .get('/vote_hot')
+      .get('/vote_neutral')
       .then(response => {
         this.setState({ currentVote: response.data.votes });
         console.log(response);
@@ -26,13 +26,15 @@ class VoteHotButton extends React.Component {
     return (
       <div className="App">
         <header className="App-header" />
-        <button id="hotButton" onClick={() => this.buttonClick()}>
-          Vote Hot!
+        <button id="neutralButton" onClick={() => this.buttonClick()}>
+          Vote Neutral!
         </button>
-        <p id="voteDisplay">Current votes for HOT: {this.state.currentVote}</p>
+        <p id="voteDisplay">
+          Current votes for NEUTRAL: {this.state.currentVote}
+        </p>
       </div>
     );
   }
 }
 //find root and replace
-export default VoteHotButton;
+export default VoteNeutralButton;
