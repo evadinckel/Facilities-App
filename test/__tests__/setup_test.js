@@ -5,7 +5,7 @@ import { shallow, mount, render } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import VotingButton from '../../src/votingButton.js';
+import VoteHotButton from '../../src/VoteHotButton.js';
 
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -14,23 +14,23 @@ describe('Inital test', () => {
   it('should render a Vote Hot prop', () => {
 
   const wrapper = mount(
-      <VotingButton />
+      <VoteHotButton />
     );
     expect(wrapper.find('[id="hotButton"]').text()).toEqual('Vote Hot!')
   });
 
 
   it('should click vote hot button and vote goes up', () => {
-    const votingButton = shallow(
-      <VotingButton />
+    const wrapper = shallow(
+      <VoteHotButton />
     );
-    console.log(votingButton.toJSON())
-    votingButton.find('[id="hotButton"]').simulate('click')
+    // console.log(votingButton.toJSON())
+    VoteHotButton.find('[id="hotButton"]').simulate('click')
     // const votingButton.voteDisplay
 
-    console.log(votingButton.currentVote)
+    // console.log(votingButton.currentVote)
 
-    expect(votingButton.find('[id="voteDisplay"]').text()).toEqual('Current votes for HOT: 1')
+    expect(VoteHotButton.find('[id="voteDisplay"]').text()).toEqual('Current votes for HOT: 1')
 
   });
 });

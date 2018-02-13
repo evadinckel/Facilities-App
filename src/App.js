@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VotingButton from './votingButton.js';
+import VoteHotButton from './VoteHotButton.js';
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <VotingButton />
+        <VoteHotButton />
         Hello!</div>
 
   )

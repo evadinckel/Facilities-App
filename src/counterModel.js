@@ -2,18 +2,18 @@
 
 class Counter {
   constructor() {
-    this.currentVote = 0;
+    this.hotCounter = 0;
   }
 
   voteHot() {
-    this.currentVote ++;
+    this.hotCounter ++;
     // console.log(this.currentVote);
-    return this.currentVote
+    return this.hotCounter
   }
 
   voteCold() {
-    this.currentVote--;
-    return this.currentVote;
+    // this.currentVote--;
+    // return this.currentVote;
   }
 
   apiCall(url) {

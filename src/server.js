@@ -10,11 +10,11 @@ const counter = new Counter()
 
 app.get('/vote_hot', function (req, res, next) {
  counter.voteHot()
- console.log(counter.currentVote)
+ console.log(counter.hotCounter)
   next()
 }, function (req, res) {
   // res.send(`${voteCounter.currentVote}`)
- res.send({ votes: counter.currentVote });
+ res.send({ votes: counter.hotCounter });
 })
 
 // app.get('/vote_cold', function (req, res, next) {
