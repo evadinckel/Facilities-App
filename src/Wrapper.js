@@ -15,7 +15,8 @@ class Wrapper extends Component {
   }
 
   buttonClick() {
-    console.log(this)
+    var cookie = document.cookie = 'username=David'
+    console.log(cookie)
     axios
       .get('/vote_hot')
       .then(response => {
