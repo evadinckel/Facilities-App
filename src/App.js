@@ -2,34 +2,33 @@ import React, { Component } from 'react';
 import Wrapper from './Wrapper.js';
 
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.componentDidMount()
+      cookieID: null
     };
-    console.log(this.state.username)
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
+
+    const time = new Date()
+    const milSecs = time.getTime()
+
     if (document.cookie.includes('username') === false) {
-      const time = new Date()
-      const milSecs = time.getTime()
-      // ${milSecs}
-      document.cookie = `username=david`
-      console.log('cookie', document.cookie)
+      document.cookie = `username=${milSecs}`
     }
-      return document.cookie
+
+    this.setState({ cookieID: document.cookie })
 
   }
 
-  
+
   render() {
     return (
       <div>
-        <Wrapper user={this.state.username}/>
+        <Wrapper user={this.state.cookieID}/>
       </div>
     );
   }

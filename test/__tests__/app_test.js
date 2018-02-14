@@ -8,14 +8,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../../src/App.js';
 
 Enzyme.configure({ adapter: new Adapter() });
-
+// mock document.cookie (as won't have access to document)
 
 describe('Initial cookie test', () => {
-  it('should set a username', () => {
-
-  const app = mount(<App />)
-  console.log(app.instance())
-    var appInstance = App.instance()
-    expect(appInstance.state.username).toEqual(`username=david`)
+  it('should add a cookieID with username', () => {
+    const app = shallow(<App />)
+    expect(app.state().cookieID).toContain('username')
   });
 })
