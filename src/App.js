@@ -19,11 +19,13 @@ class App extends Component {
       const milSecs = time.getTime()
       // ${milSecs}
       document.cookie = `username=david`
-    } else {
-      return document.cookie
+      console.log('cookie', document.cookie)
     }
+      return document.cookie
 
   }
+
+  
   render() {
     return (
       <div>

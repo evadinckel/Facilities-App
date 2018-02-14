@@ -16,6 +16,6 @@ describe('Initial cookie test', () => {
   const app = mount(<App />)
   console.log(app.instance())
     var appInstance = App.instance()
-    expect(appInstance.state.username.toEqual(`username=david`))
+    expect(appInstance.state.username).toEqual(`username=david`)
   });
 })
