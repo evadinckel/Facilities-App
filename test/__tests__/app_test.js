@@ -7,14 +7,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../../src/App.js';
 
-// Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 
 describe('Initial cookie test', () => {
-  it('should render a Vote Hot prop', () => {
+  it('should set a username', () => {
 
-  const wrapper = mount(
-      <VoteHotButton />
-    );
-    expect(wrapper.find('[id="hotButton"]').text()).toEqual('Vote Hot!')
+  const app = mount(<App />)
+  console.log(app.instance())
+    var appInstance = App.instance()
+    expect(appInstance.state.username.toEqual(`username=david`))
   });
+})
