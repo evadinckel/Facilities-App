@@ -16,14 +16,34 @@ class Wrapper extends Component {
     };
   }
 
-  buttonClick(type) {
+  // buttonVariables(type, response) {
+  //   if (type === 'hot') {
+  //     return {
+  //       url: '/vote_hot',
+  //       setVoteFunction:this.setState({ hotVote: response.data.votes })
+  //     };
+  //   } else if (type === 'cold') {
+  //     return {
+  //       url: '/vote_cold',
+  //       setVoteFunction:this.setState({ coldVote: response.data.votes })
+  //     };
+  //   } else {
+  //     return {
+  //       url: '/vote_neutral',
+  //       setVoteFunction:this.setState({ neutralVote: response.data.votes })
+  //     };
+  //   };
+  // };
 
 
-    console.log(this);
+  buttonClick(url) {
+    // console.log('buttonClick THIS', this)
+    // console.log(this);
     axios
-      .get(url)
+      .get('/vote_'+url)
       .then(response => {
-buttonVariables()['setVoteFunction']
+        console.log(response)
+        this.chooseStateSet(url, response)
 
       })
       .catch(error => {
@@ -31,24 +51,17 @@ buttonVariables()['setVoteFunction']
       });
   }
 
-buttonVariables() {
-  if (type === 'hot') {
-    {
-      url: '/vote_hot',
-      setVoteFunction:this.setState({ hotVote: response.data.votes });
-    }
-  } else if (type === 'cold') {
-    {
-      url: '/vote_cold',
-      setVoteFunction:this.setState({ coldVote: response.data.votes });
-    }
-  } else {
-    {
-      url: '/vote_neutral',
-      setVoteFunction:this.setState({ neutralVote: response.data.votes });
+  chooseStateSet(url,response){
+    // console.log('chooseStateSet THIS',this)
+    // console.log('chooseStateSet called')
+    if(url==='hot'){
+        this.setState({hotVote: response.data.votes})
+    } else if (url==='cold') {
+       this.setState({coldVote: response.data.votes})
+    } else {
+       this.setState({neutralVote: response.data.votes})
     }
   }
-}
 
 
   render() {
@@ -56,21 +69,21 @@ buttonVariables() {
       <div>
         <VoteButton
           count={this.state.hotVote}
-          onclick={this.buttonClick('hot')}
+          onclick={()=>this.buttonClick('hot')}
           buttonID={'HotButton'}
           className={'Hot Class'}
           buttonText={'Hot'}
         />
         <VoteButton
           count={this.state.coldVote}
-          onclick={this.buttonClick('cold')}
+          onclick={()=>this.buttonClick('cold')}
           buttonID={'ColdButton'}
           className={'Cold Class'}
           buttonText={'Cold'}
         />
         <VoteButton
           count={this.state.neutralVote}
-          onclick={this.buttonClick}
+          onclick={()=>this.buttonClick('neutral')}
           buttonID={'Neutral Button'}
           className={'Neutral Class'}
           buttonText={'Neutral'}
