@@ -1,5 +1,3 @@
 {
-  "presets": [
-    "node6"
-  ]
+  "presets": ["node6", "env", "react"]
 }

@@ -2,15 +2,11 @@ import React from 'react';
 // import './index.css';
 
 class VoteButton extends React.Component {
-
-
   render() {
     return (
       <div className={this.props.className}>
         <header className="App-header" />
-        <button id={this.props.buttonID} onClick={this.props.onclick}
-        >
-
+        <button id={this.props.buttonID} onClick={this.props.onclick}>
           Vote {this.props.buttonText}!
         </button>
         <p id="voteDisplay">
