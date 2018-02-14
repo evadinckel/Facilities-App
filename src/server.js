@@ -42,6 +42,13 @@ app.get(
   }
 );
 
+app.get(
+  '/votes_current',
+  function(req,res,next) {
+    res.send({ hotVotes: counter.hotCounter, coldVotes: counter.coldCounter, neutralVotes:counter.neutralCounter })
+  }
+)
+
 var server = app.listen(4000, () =>
   console.log('Example app listening on port 4000!')
 );

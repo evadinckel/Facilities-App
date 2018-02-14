@@ -10,10 +10,12 @@ class Wrapper extends Component {
     super(props);
     this.buttonClick = this.buttonClick.bind(this);
     this.state = {
-      hotVote: 0,
+      hotVote:  0,
       coldVote: 0,
       neutralVote: 0
     };
+
+    this.initialStateCall()
   }
 
   // buttonVariables(type, response) {
@@ -61,6 +63,20 @@ class Wrapper extends Component {
     } else {
        this.setState({neutralVote: response.data.votes})
     }
+  }
+
+  initialStateCall(){
+    axios
+      .get('/votes_current')
+      .then(response => {
+        // console.log(response.data.hotVotes)
+        this.setState({hotVote: response.data.hotVotes})
+        this.setState({coldVote: response.data.coldVotes})
+        this.setState({neutralVote: response.data.neutralVotes})
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 
