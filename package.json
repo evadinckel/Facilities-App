@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "concurrently": "^3.5.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -46,7 +47,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev": " nodemon src/server.js --exec babel-node",
-    "test-database": "mocha test/database"
+    "test-database": "mocha test/database",
+    "both": "concurrently \"npm run dev\" \"npm run start\""
   },
   "jest": {
     "verbose": true,

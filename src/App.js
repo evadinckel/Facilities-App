@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import VotingButton from './votingButton.js';
+import Wrapper from './Wrapper.js';
 
 class App extends Component {
-
-
-
-
-
-
   render() {
     return (
       <div>
-        <VotingButton />
-        Hello!</div>
-
-  )
-}
-
+        <Wrapper />
+      </div>
+    );
+  }
 }
 
 export default App;
