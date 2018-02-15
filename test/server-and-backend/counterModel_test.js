@@ -1,9 +1,11 @@
 import Counter from '../../src/counterModel'
 
-const counter = new Counter()
 
 
 describe('Counter', () => {
+
+  const counter = new Counter()
+
   describe('#constructor', () => {
     it('should start all counters at 0', () => {
       expect(counter.hotCounter).toEqual(0)
@@ -35,4 +37,14 @@ describe('Counter', () => {
       expect(counter.neutralCounter).toEqual(1)
     })
   })
+
+  describe('#addCookie', () => {
+    it('should add a cookie to the array', () => {
+      const cookie = 'username=123456'
+      counter.addCookie(cookie)
+      expect(counter.cookieIDLog.length).toEqual(1)
+      expect(counter.cookieIDLog).toContain('username=123456')
+    })
+  });
+
 })

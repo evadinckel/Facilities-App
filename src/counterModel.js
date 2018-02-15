@@ -21,6 +21,10 @@ class Counter {
   voteNeutral() {
     this.neutralCounter++;
   }
+
+  addCookie(cookie) {
+    this.cookieIDLog.push(cookie)
+  }
 }
 
 export default Counter;
