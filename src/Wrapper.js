@@ -16,11 +16,16 @@ class Wrapper extends Component {
     };
   }
 
+
   componentWillMount() {
     this.initialStateCall();
   }
 
   buttonClick(url) {
+    
+    var cookie = document.cookie = 'username=David'
+    console.log(cookie)
+    
     axios
       .get('/vote_' + url)
       .then(response => {
@@ -62,6 +67,7 @@ class Wrapper extends Component {
   }
 
   initialStateCall() {
+
     axios
       .get('/votes_current')
       .then(response => {
