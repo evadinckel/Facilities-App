@@ -5,6 +5,8 @@ class Counter {
     this.hotCounter = 0;
     this.coldCounter = 0;
     this.neutralCounter = 0;
+    this.cookieIDLog = [];
+    console.log(this.cookieIDLog)
     // console.log(this.hotCounter)
   }
 
@@ -18,6 +20,10 @@ class Counter {
 
   voteNeutral() {
     this.neutralCounter++;
+  }
+
+  addCookie(cookie) {
+    this.cookieIDLog.push(cookie)
   }
 }
 

@@ -22,12 +22,8 @@ class Wrapper extends Component {
   }
 
   buttonClick(url) {
-    
-    var cookie = document.cookie = 'username=David'
-    console.log(cookie)
-    
     axios
-      .get('/vote_' + url)
+      .get('/vote_' + url + '?id=eva')
       .then(response => {
         console.log(response);
         this.chooseStateSet(url, response);
@@ -106,6 +102,7 @@ class Wrapper extends Component {
           className={'Neutral Class'}
           buttonText={'Neutral'}
         />
+        cookieID :{this.props.user}
       </div>
     );
   }
