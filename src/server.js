@@ -3,11 +3,6 @@ import Counter from '../src/counterModel.js';
 const app = express();
 const counter = new Counter();
 
-// app.use(function (req, res, next) {
-//     // Website you wish to allow to connect
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-// })
-
 app.get(
   '/vote_hot',
   function(req, res, next) {
@@ -41,6 +36,14 @@ app.get(
     res.send({ votes: counter.neutralCounter });
   }
 );
+
+app.get('/votes_current', function(req, res, next) {
+  res.send({
+    hotVotes: counter.hotCounter,
+    coldVotes: counter.coldCounter,
+    neutralVotes: counter.neutralCounter
+  });
+});
 
 var server = app.listen(4000, () =>
   console.log('Example app listening on port 4000!')
