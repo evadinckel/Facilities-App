@@ -6,6 +6,8 @@ const counter = new Counter();
 app.get(
   '/vote_hot',
   function(req, res, next) {
+    counter.cookieIDLog.push(req.query.id)
+    console.log(counter.cookieIDLog)
     counter.voteHot();
     console.log(counter.hotCounter);
     next();
