@@ -9,7 +9,7 @@ class VoteButton extends React.Component {
         <button id={this.props.buttonID} onClick={this.props.onclick}>
           Vote {this.props.buttonText}!
         </button>
-        <p id="voteDisplay">
+        <p id={this.props.buttonText+ "voteDisplay"}>
           Current votes for {this.props.buttonText}: {this.props.count}
         </p>
       </div>
