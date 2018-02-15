@@ -13,6 +13,7 @@
     "babel": "^6.23.0",
     "express": "^4.16.2",
     "jest-cli": "^22.1.4",
+    "nock": "^9.1.6",
     "react": "^16.2.0",
     "react-scripts": "1.1.0",
     "request": "^2.83.0"
@@ -52,13 +53,10 @@
     "both": "concurrently \"npm run dev\" \"npm run start\""
   },
   "jest": {
+    "testURL": "http://localhost:4000",
     "verbose": true,
-    "setupFiles": [
-      "./test/jestsetup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
+    "setupFiles": ["./test/jestsetup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     }
