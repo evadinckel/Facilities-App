@@ -21,13 +21,14 @@ class Wrapper extends Component {
   }
 
   buttonClick(url) {
-    var cookie = (document.cookie = 'username=David');
-    console.log(cookie);
+    // var cookie = (document.cookie = 'username=David');
+    // console.log(cookie);
 
     axios
-      .get('http://localhost:4000/vote_' + url)
+      .get('/vote_' + url)
       .then(response => {
-        console.log(response);
+
+        console.log("it's a API RESPONSE that says...", response);
         this.chooseStateSet(url, response);
       })
       .catch(error => {
@@ -51,7 +52,10 @@ class Wrapper extends Component {
       }
     ];
 
+    console.log("Response as logged in State Update",response)
+
     var stateUpdate = votes.find(vote => vote.key === url).state;
+    console.log("stateUpdate", stateUpdate)
     this.setState(stateUpdate);
 
     /*
@@ -66,7 +70,7 @@ class Wrapper extends Component {
 
   initialStateCall() {
     axios
-      .get('http://localhost:4000/votes_current')
+      .get('/votes_current')
       .then(response => {
         this.setState({
           hotVote: response.data.hotVotes,
@@ -76,6 +80,7 @@ class Wrapper extends Component {
       })
       .catch(error => {
         console.log(error);
+        console.log('API call failure')
       });
   }
 
